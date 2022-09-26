@@ -8,7 +8,7 @@ pipeline {
                 // Get some code from a GitHub repository
                 withCredentials([gitUsernamePassword(credentialsId: 'aba8ae63-c5bf-4f95-9865-90d2dc3782b5', gitToolName: 'git-tool')]) {
                     sh 'git fetch https://github.com/ketanAggarwal58/mern-task.git'
-                    sh 'docker build -f dockerfile.dev -t react .'
+                    sh 'docker build -f https://github.com/ketanAggarwal58/mern-task/frontend/ui-task/dockerfile.dev -t react .'
                 }
             }
         }
