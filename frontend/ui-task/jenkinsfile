@@ -1,22 +1,47 @@
 pipeline {
     agent any
 
+    environment{
+        dockerImage = ''
+        registry = 'ketanaggarwal58/mern_task'
+        registryCrendential = ''
+
+    }
+
     stages {
-        
-        stage('Build') {
-            steps {
-                // Get some code from a GitHub repository
-                withCredentials([gitUsernamePassword(credentialsId: 'aba8ae63-c5bf-4f95-9865-90d2dc3782b5', gitToolName: 'git-tool')]) {
-                    sh 'git fetch https://github.com/ketanAggarwal58/mern-task.git'
-                    sh 'docker build -f https://github.com/ketanAggarwal58/mern-task/frontend/ui-task/dockerfile.dev -t react .'
-                }
+
+        stage('CheckOut') {
+            steps{
+                checkout([$class: 'GitSCM', branch: [[name: '*/master']], doGenerateSubmoduleConfrigrations: false, extension: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/ketanAggarwal58/mern-task/']]])
             }
         }
-        
-        stage('Run') {
-            steps {
-                sh 'docker run -d -it –rm -p 3000:3000 –name test1 react'
+
+        stage('Image Build'){
+            steps{
+                dockerImage = docker.build registry
             }
         }
+
+        // stage('Upload Image'){
+        //     steps{
+
+        //     }
+        // }
+        
+        // stage('Build') {
+        //     steps {
+        //         // Get some code from a GitHub repository
+        //         withCredentials([gitUsernamePassword(credentialsId: 'aba8ae63-c5bf-4f95-9865-90d2dc3782b5', gitToolName: 'git-tool')]) {
+        //             sh 'git fetch https://github.com/ketanAggarwal58/mern-task.git'
+        //             sh 'docker build -f https://github.com/ketanAggarwal58/mern-task/frontend/ui-task/dockerfile.dev -t react .'
+        //         }
+        //     }
+        // }
+        
+        // stage('Run') {
+        //     steps {
+        //         sh 'docker run -d -it –rm -p 3000:3000 –name test1 react'
+        //     }
+        // }
     }
 }
