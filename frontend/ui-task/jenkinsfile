@@ -12,7 +12,7 @@ pipeline {
 
         stage('CheckOut') {
             steps{
-                checkout([$class: 'GitSCM', branch: [[name: '*/master']], doGenerateSubmoduleConfrigrations: false, extension: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/ketanAggarwal58/mern-task/']]])
+                checkout([$class: 'GitSCM', branch: [[name: '*/main']], doGenerateSubmoduleConfrigrations: false, extension: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/ketanAggarwal58/mern-task/']]])
             }
         }
 
