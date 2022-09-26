@@ -12,9 +12,7 @@ pipeline {
 
         stage('CheckOut') {
             steps{
-                withCredentials([gitUsernamePassword(credentialsId: 'aba8ae63-c5bf-4f95-9865-90d2dc3782b5', gitToolName: 'git-tool')]){
-                    checkout([$class: 'GitSCM', branch: [[name: '*/main']], doGenerateSubmoduleConfrigrations: false, extension: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/ketanAggarwal58/mern-task.git']]])
-                }
+                git branch: 'main', credentialsId: 'aba8ae63-c5bf-4f95-9865-90d2dc3782b5', url: 'https://github.com/ketanAggarwal58/mern-task.git'
             }
         }
 
