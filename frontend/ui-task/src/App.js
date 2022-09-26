@@ -1,6 +1,5 @@
 import './App.css';
 import React, {useRef, useEffect} from 'react';
-import Split from 'react-split'
 
 function App() {
 
@@ -35,8 +34,8 @@ function App() {
     let xcord = 0;
     let ycord = 0;
 
-    resizableElement.style.top = "100px";
-    resizableElement.style.left = "100px";
+    resizableElement.style.top = "0px";
+    resizableElement.style.left = "0px";
 
     // TOP
     const onMouseMoveTopResize = (event) => {
@@ -153,8 +152,8 @@ function App() {
     let xcord = 0;
     let ycord = 0;
 
-    resizableElement.style.top = "100px";
-    resizableElement.style.left = "100px";
+    resizableElement.style.top = "0px";
+    resizableElement.style.left = "0px";
 
     // TOP
     const onMouseMoveTopResize = (event) => {
@@ -271,8 +270,8 @@ function App() {
     let xcord = 0;
     let ycord = 0;
 
-    resizableElement.style.top = "100px";
-    resizableElement.style.left = "100px";
+    resizableElement.style.top = "0px";
+    resizableElement.style.left = "0px";
 
     // TOP
     const onMouseMoveTopResize = (event) => {
@@ -390,14 +389,14 @@ function App() {
             <div ref = {refRight} className = "resizer rr"></div>
             <div ref = {refBottom} className = "resizer rb"></div>
             <div>Hi I am Component 1</div>
-            </div>
-            <div ref={refBox2} className = "resizeableBox2">
+          </div>
+          <div ref={refBox2} className = "resizeableBox2">
               <div ref = {refLeft2} className = "resizer rl"></div>
               <div ref = {refTop2} className = "resizer rt"></div>
               <div ref = {refRight2} className = "resizer rr"></div>
               <div ref = {refBottom2} className = "resizer rb"></div>
               <div>Hi I am Component 2</div>
-            </div>
+          </div>
           </div>
           <div className='row'>
             <div ref={refBox3} className = "resizeableBox3">
